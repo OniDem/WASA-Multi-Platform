@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WASA_Multi_Platform.Pages.ProductShowPage"
+             Title="Товары"
+             IsBusy="False">
+    <ScrollView>
+    <VerticalStackLayout>
+            <Label Text="ProductShowPage in Dev(in prod delete this label)" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"/>
+            <Entry x:Name="articleEntry" Margin="10" TextChanged="articleEntry_TextChanged" TextColor="LightCoral"/>
+            <Entry x:Name="barcodeEntry" Margin="10" TextChanged="barcodeEntry_TextChanged" TextColor="LightCoral"/>
+            <ListView x:Name="ProductShowListView" ItemTapped="ProductShowListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell x:Name="ProductShowTextCell" Text="{Binding Name}" Detail="{Binding Description}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
