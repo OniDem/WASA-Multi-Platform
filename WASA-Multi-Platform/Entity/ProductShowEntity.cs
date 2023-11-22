@@ -8,7 +8,7 @@ namespace WASA_Multi_Platform.Entity
 {
     internal class ProductShowEntity
     {
-        public string barcode {  get; set; }
+        public string Barcode {  get; set; }
 
         public string Name { get; set; }
 
