@@ -1,6 +1,7 @@
 using WASA_Multi_Platform.Const;
 using ZXing.Net.Maui;
 using CommunityToolkit.Maui.Alerts;
+using WASA_Multi_Platform.Entity;
 
 namespace WASA_Multi_Platform.Pages;
 
@@ -9,6 +10,9 @@ public partial class BarcodeReaderPage : ContentPage
     public BarcodeReaderPage()
     {
         InitializeComponent();
+        if (UserEntity.ID == null)
+            Navigation.PushAsync(new AuthPage());
+
         cameraBarcodeReaderView.Options = new BarcodeReaderOptions
         {
             Formats = BarcodeFormats.All,
@@ -17,10 +21,11 @@ public partial class BarcodeReaderPage : ContentPage
         };
         cameraBarcodeReaderView.IsTorchOn = !cameraBarcodeReaderView.IsTorchOn;
         cameraBarcodeReaderView.AutoFocus();
-       
+
         cameraBarcodeReaderView.CameraLocation = CameraLocation.Rear;
         BarcodeInfo.Barcode = null;
         BarcodeInfo.BarcodeSended = false;
+
     }
 
     protected async void BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
@@ -57,4 +62,9 @@ public partial class BarcodeReaderPage : ContentPage
         cameraBarcodeReaderView.CameraLocation = cameraBarcodeReaderView.CameraLocation == CameraLocation.Rear ? CameraLocation.Front : CameraLocation.Rear;
     }
 
+    private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+    {
+        if (UserEntity.ID == null)
+            Navigation.PushAsync(new AuthPage());
+    }
 }

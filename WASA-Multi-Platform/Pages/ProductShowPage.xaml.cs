@@ -11,10 +11,12 @@ public partial class ProductShowPage : ContentPage
     bool seller_type = true;
 
     List<ProductShowEntity> products = new();
-    
+
     public ProductShowPage()
     {
         InitializeComponent();
+        if (UserEntity.ID == null)
+            Navigation.PushAsync(new AuthPage());
 
         var timer = new Stopwatch();
         timer.Start();
@@ -28,7 +30,7 @@ public partial class ProductShowPage : ContentPage
         string foo = timeTaken.ToString(@"m\:ss\.fff");
         var toast = Toast.Make("Time to load data from db: " + foo, CommunityToolkit.Maui.Core.ToastDuration.Long, 14);
         toast.Show();
-        
+
         switch (seller_type)
         {
             case false:
@@ -38,6 +40,7 @@ public partial class ProductShowPage : ContentPage
                 Title = "Товары                                                           Кассир";
                 break;
         }
+
     }
 
     private void articleEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -85,5 +88,11 @@ public partial class ProductShowPage : ContentPage
     private void tonextpage_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MainPage());
+    }
+
+    private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+    {
+        if (UserEntity.ID == null)
+            Navigation.PushAsync(new AuthPage());
     }
 }

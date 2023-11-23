@@ -7,20 +7,16 @@
     Shell.FlyoutBehavior="Flyout"
     Shell.FlyoutWidth="250"
     Shell.TabBarBackgroundColor="#a3a3a3"
+    Shell.TabBarIsVisible="False"
     Shell.FlyoutBackdrop="#a3a3a3"
     FlyoutBackgroundColor="#C0C0C0">
 
-    <MenuItem Text="Обо мне" x:Name="SessionUser" Clicked="SessionUser_Clicked"/>
-
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
-        
-        <ShellContent Title="Главная" 
-                      ContentTemplate="{DataTemplate pages:MainPage}"/>
-        <ShellContent Title="Товар"
-                      ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
-        <ShellContent Title="Узнать о товаре"
-                      ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>
+        <ShellContent Title="Главная" ContentTemplate="{DataTemplate pages:MainPage}"/>
+        <ShellContent Title="Товар" ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
+        <ShellContent Title="Узнать о товаре" ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>
+        <ShellContent Title="Настройки" ContentTemplate="{DataTemplate pages:SettingsPage}"/>
+        <ShellContent Title="Обо мне" ContentTemplate="{DataTemplate pages:AboutPage}"/>
     </FlyoutItem>
-
     <MenuItem Text="Выйти из учётной записи" x:Name="SessionExit" Clicked="SessionExit_Clicked"/>
 </Shell>

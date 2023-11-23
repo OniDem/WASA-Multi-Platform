@@ -1,4 +1,5 @@
 ﻿using WASA_Multi_Platform.Entity;
+using WASA_Multi_Platform.Pages;
 
 namespace WASA_Multi_Platform
 {
@@ -7,16 +8,17 @@ namespace WASA_Multi_Platform
         public AppShell()
         {
             InitializeComponent();
-            UserActivities.GetUserInfo(3);
-            SessionUser.Text = UserEntity.UserName;
+            if (UserEntity.ID == null)
+            {
+                Navigation.PushAsync(new AuthPage());
+            }
+            else
+            {
+
+            }
         }
 
         private void SessionExit_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SessionUser_Clicked(object sender, EventArgs e)
         {
 
         }
