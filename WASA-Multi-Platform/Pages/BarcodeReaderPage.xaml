@@ -4,8 +4,10 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              x:Class="WASA_Multi_Platform.Pages.BarcodeReaderPage"
              Title="BarcodeReaderPage">
-    <VerticalStackLayout>
-        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="BarcodesDetected" HeightRequest="200" WidthRequest="200" Margin="10, 10, 10, 10"/>
+    <StackLayout Margin="10">
+        <StackLayout >
+            <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="BarcodesDetected" Margin="10, 10, 10, 10"/>
+        </StackLayout>
         <Button x:Name="SwitchCameraButton" Text="Сменить камеру" Clicked="SwitchCameraButton_Clicked" Margin="10, 10, 10, 10"/>
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>

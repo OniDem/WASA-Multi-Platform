@@ -3,19 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WASA_Multi_Platform.Pages.ProductShowPage"
              Title="Товары"
-             IsBusy="False">
-    <ScrollView>
-    <VerticalStackLayout>
-            <Label Text="ProductShowPage in Dev(in prod delete this label)" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"/>
-            <Entry x:Name="articleEntry" Margin="10" TextChanged="articleEntry_TextChanged" TextColor="LightCoral"/>
-            <Entry x:Name="barcodeEntry" Margin="10" TextChanged="barcodeEntry_TextChanged" TextColor="LightCoral"/>
-            <ListView x:Name="ProductShowListView" ItemTapped="ProductShowListView_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell x:Name="ProductShowTextCell" Text="{Binding Name}" Detail="{Binding Description}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </VerticalStackLayout>
-    </ScrollView>
+             IsBusy="false"
+             BackgroundColor="#C0C0C0"
+             NavigatedTo="ContentPage_NavigatedTo">
+
+    <StackLayout>
+        <Label Text="ProductShowPage in Dev(in prod delete this label)" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"/>
+        
+        <Entry x:Name="articleEntry" Margin="10" TextChanged="articleEntry_TextChanged" TextColor="LightCoral" Keyboard="Numeric"/>
+        <Entry x:Name="barcodeEntry" Margin="10" TextChanged="barcodeEntry_TextChanged" TextColor="LightCoral" Keyboard="Numeric"/>
+        <Button Text="Считать штрихкод" x:Name="ReadBarcodeButton" Clicked="ReadBarcodeButton_Clicked" Margin="5"/>
+        <Button x:Name="tonextpage" Text="asdad" Clicked="tonextpage_Clicked"></Button>
+        <ListView x:Name="ProductShowListView" SeparatorColor="#808080" Margin="5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label FontSize="14" FontAttributes="Bold" Text="{Binding Barcode}"/>
+                            <Label FontSize="13" FontAttributes="Bold" Text="{Binding Name}"/>
+                            <Label FontSize="12" Text="{Binding Description}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

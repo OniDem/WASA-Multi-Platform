@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using ZXing.Net.Maui;
+using ZXing.Net.Maui.Controls;
 
 namespace WASA_Multi_Platform
 {
@@ -13,7 +15,8 @@ namespace WASA_Multi_Platform
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseBarcodeReader();
 
 #if DEBUG
 		builder.Logging.AddDebug();
