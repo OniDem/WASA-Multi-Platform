@@ -4,11 +4,23 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:WASA_Multi_Platform.Pages"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutWidth="250"
+    Shell.TabBarBackgroundColor="#a3a3a3"
+    Shell.FlyoutBackdrop="#a3a3a3"
+    FlyoutBackgroundColor="#C0C0C0">
 
-    <ShellContent
-        Title="Товары"
-        ContentTemplate="{DataTemplate pages:ProductShowPage}"
-        Route="ProductShowPage" />
+    <MenuItem Text="Обо мне" x:Name="SessionUser" Clicked="SessionUser_Clicked"/>
 
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+        
+        <ShellContent Title="Главная" 
+                      ContentTemplate="{DataTemplate pages:MainPage}"/>
+        <ShellContent Title="Товар"
+                      ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
+        <ShellContent Title="Узнать о товаре"
+                      ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>
+    </FlyoutItem>
+
+    <MenuItem Text="Выйти из учётной записи" x:Name="SessionExit" Clicked="SessionExit_Clicked"/>
 </Shell>
