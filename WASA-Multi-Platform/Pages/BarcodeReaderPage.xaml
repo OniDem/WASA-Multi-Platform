@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              x:Class="WASA_Multi_Platform.Pages.BarcodeReaderPage"
-             Title="BarcodeReaderPage">
+             Title="BarcodeReaderPage"
+             BackgroundColor="#C0C0C0">
     <StackLayout Margin="10">
         <StackLayout >
             <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="BarcodesDetected" Margin="10, 10, 10, 10"/>
