@@ -10,6 +10,6 @@
         <Entry x:Name="Login" FontSize="14" Margin="15, 0, 15, 0"/>
         <Label Text="Пароль" FontSize="14" HorizontalOptions="Center"/>
         <Entry x:Name="Password" FontSize="14"  IsPassword="True"  Margin="15, 0, 15, 0"/>
-        <Button Text="Авторизоваться" x:Name="AuthButton" Clicked="AuthButton_Clicked"/>
+        <Button Text="Авторизоваться" x:Name="AuthButton" Clicked="AuthButton_Clicked" Margin="15"/>
     </VerticalStackLayout>
 </ContentPage>
