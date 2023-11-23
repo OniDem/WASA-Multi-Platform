@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WASA_Multi_Platform.Pages.NewPage1"
+             x:Class="WASA_Multi_Platform.Pages.AuthPage"
              Title="Авторизация">
-    <VerticalStackLayout>
-        <Label 
-            Text="Page in Dev(in prod delete this label)"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            TextColor="Red"/>
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label Text="Добро пожаловать, пожалуйста авторизуйтесь" FontSize="20" Margin="10" HorizontalOptions="Center"/>
+        <Label Text="Логин" FontSize="14" HorizontalOptions="Center"/>
+        <Entry x:Name="Login" FontSize="14" Margin="15, 0, 15, 0"/>
+        <Label Text="Пароль" FontSize="14" HorizontalOptions="Center"/>
+        <Entry x:Name="Password" FontSize="14"  IsPassword="True"  Margin="15, 0, 15, 0"/>
+        <Button Text="Авторизоваться" x:Name="AuthButton" Clicked="AuthButton_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
