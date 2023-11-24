@@ -12,14 +12,20 @@ namespace WASA_Multi_Platform.Activities
         /// <summary>
         /// Функция для добавления данных о адресе и порте подключения к БД
         /// </summary>
-        public static void SetAddressData(SettingsEntity entity)
+        public static void SetSettingsData(SettingsEntity entity)
         {
             try
             {
+                Task.Run(async () =>
+                {
+                    await Permissions.RequestAsync<Permissions.StorageWrite>();
+                });
                 using (StreamWriter file = File.CreateText(_path))
                 {
                     Newtonsoft.Json.JsonSerializer serializer = new();
                     serializer.Serialize(file, entity);
+                    var toast = Toast.Make("Данные сохранены!");
+                    toast.Show();
                 }
             }
             catch (Exception ex)
@@ -29,14 +35,28 @@ namespace WASA_Multi_Platform.Activities
             }
         }
 
-        public static SettingsEntity GetAddressData()
+        public static SettingsEntity GetSettingsData()
         {
-            if (File.Exists(_path) == false)
-                File.CreateText(_path);
-            using (StreamReader stream = File.OpenText(_path))
+            try
             {
-                Newtonsoft.Json.JsonSerializer serializer = new();
-                return serializer.Deserialize(stream, typeof(SettingsEntity)) as SettingsEntity;
+                Task.Run(async () =>
+                {
+                    await Permissions.RequestAsync<Permissions.StorageRead>();
+                });
+                if (File.Exists(_path) == false)
+                    File.CreateText(_path);
+                using (StreamReader stream = File.OpenText(_path))
+                {
+                    Newtonsoft.Json.JsonSerializer serializer = new();
+                    return serializer.Deserialize(stream, typeof(SettingsEntity)) as SettingsEntity;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var toast = Toast.Make(ex.Message);
+                toast.Show();
+                return null;
             }
         }
     }

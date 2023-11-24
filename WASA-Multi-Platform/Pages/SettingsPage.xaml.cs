@@ -12,7 +12,7 @@ public partial class SettingsPage : ContentPage
 		InitializeComponent();
 		Task.Run(async () => await Dispatcher.DispatchAsync(() =>
 		{
-            entity = FileIOActivities.GetAddressData();
+            entity = FileIOActivities.GetSettingsData();
         }));
 		Name.Text = entity.DB_Name;
 		IP.Text = entity.DB_Ip;
@@ -23,7 +23,7 @@ public partial class SettingsPage : ContentPage
 
     private void SaveButton_Clicked(object sender, EventArgs e)
     {
-		FileIOActivities.SetAddressData(new()
+		FileIOActivities.SetSettingsData(new()
 		{
 			DB_Name = Name.Text,
 			DB_Ip = IP.Text,
