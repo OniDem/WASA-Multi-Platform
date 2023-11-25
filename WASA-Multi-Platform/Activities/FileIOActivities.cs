@@ -56,5 +56,14 @@ namespace WASA_Multi_Platform.Activities
                 return null;
             }
         }
+
+        public static bool HaveSettingsApplied()
+        {
+            SettingsEntity entity = GetSettingsData();
+            if (entity != null)
+                return true;
+            else
+                return false;
+        }
     }
 }

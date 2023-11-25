@@ -1,8 +1,8 @@
 using CommunityToolkit.Maui.Alerts;
 using Npgsql;
+using WASA_Multi_Platform.Activities;
 using WASA_Multi_Platform.Const;
 using WASA_Multi_Platform.Entity;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace WASA_Multi_Platform.Pages;
 
@@ -11,6 +11,8 @@ public partial class AuthPage : ContentPage
 	public AuthPage()
 	{
 		InitializeComponent();
+        if (!FileIOActivities.HaveSettingsApplied())
+            Navigation.PushAsync(new SettingsPage());
     }
 
     private void AuthButton_Clicked(object sender, EventArgs e)
