@@ -11,15 +11,18 @@ public partial class SettingsPage : ContentPage
 
         SettingsEntity entity = FileIOActivities.GetSettingsData();
 		
-		Name.Text = entity.DB_Name;
-		IP.Text = entity.DB_Ip;
-		Port.Text = entity.DB_Port;
-		UserName.Text = entity.DB_UserName;
-		Password.Text = entity.DB_Password;
-		if (entity.DB_SllMode == "Disable")
-			SllMode.IsToggled = false;
-		if (entity.DB_SllMode == "Required")
-			SllMode.IsToggled = true;
+		if(entity != null )
+        {
+            Name.Text = entity.DB_Name;
+            IP.Text = entity.DB_Ip;
+            Port.Text = entity.DB_Port;
+            UserName.Text = entity.DB_UserName;
+            Password.Text = entity.DB_Password;
+            if (entity.DB_SllMode == "Disable")
+                SllMode.IsToggled = false;
+            if (entity.DB_SllMode == "Required")
+                SllMode.IsToggled = true;
+        }
 
         IP.IsPassword = true;
         Password.IsPassword = true;
@@ -59,12 +62,12 @@ public partial class SettingsPage : ContentPage
         if (IP.IsPassword == true)
         {
             IP.IsPassword = false;
-            IPVisibility.Source = "show_eye.png";
+            IPVisibility.Source = "show_eye.svg";
         }
         else
         {
             IP.IsPassword = true;
-            IPVisibility.Source = "hide_eye.png";
+            IPVisibility.Source = "hide_eye.svg";
         }
     }
 
@@ -73,12 +76,12 @@ public partial class SettingsPage : ContentPage
         if (Password.IsPassword == true)
         {
             Password.IsPassword = false;
-            PasswordVisibility.Source = "show_eye.png";
+            PasswordVisibility.Source = "show_eye.svg";
         }
         else
         {
             Password.IsPassword = true;
-            PasswordVisibility.Source = "hide_eye.png";
+            PasswordVisibility.Source = "hide_eye.svg";
         }
     }
 }

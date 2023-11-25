@@ -10,7 +10,7 @@
         <Label Text="IP БД" FontSize="14" HorizontalOptions="Center"/>
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry x:Name="IP" FontSize="14" Margin="15, 0, 0, 0"  WidthRequest="200"/>
-            <ImageButton x:Name="IPVisibility" HeightRequest="24" WidthRequest="24" Source="hide_eye.png" Clicked="IPVisibility_Clicked"/>
+            <ImageButton x:Name="IPVisibility" HeightRequest="24" WidthRequest="24" Source="hide_eye.svg" Clicked="IPVisibility_Clicked"/>
         </HorizontalStackLayout>
         <Label Text="Порт БД" FontSize="14" HorizontalOptions="Center"/>
         <Entry x:Name="Port" FontSize="14" Margin="15, 0, 15, 0"  WidthRequest="200"/>
@@ -19,7 +19,7 @@
         <Label Text="Пароль пользователя БД" FontSize="14" HorizontalOptions="Center"/>
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry x:Name="Password" FontSize="14" Margin="15, 0, 0, 0" IsPassword="False" WidthRequest="200"/>
-            <ImageButton x:Name="PasswordVisibility" HeightRequest="24" WidthRequest="24" Source="hide_eye.png" Clicked="PasswordVisibility_Clicked"/>
+            <ImageButton x:Name="PasswordVisibility" HeightRequest="24" WidthRequest="24" Source="hide_eye.svg" Clicked="PasswordVisibility_Clicked"/>
         </HorizontalStackLayout>
         <Label Text="Подключение с сертификатом SLL" FontSize="14" HorizontalOptions="Center"/>
         <Switch x:Name="SllMode" Margin="15, 0, 15, 0" HorizontalOptions="Center"/>

@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>WASA-Multi-Platform</ApplicationTitle>
+		<ApplicationTitle>WASA</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.wasa_multi_platform</ApplicationId>
@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\icon.png" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\icon.svg" ForegroundFile="Resources\AppIcon\icon.svg"/>
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
