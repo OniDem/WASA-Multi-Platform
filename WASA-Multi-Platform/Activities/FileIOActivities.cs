@@ -45,12 +45,9 @@ namespace WASA_Multi_Platform.Activities
                 });
                 if (File.Exists(_path) == false)
                     File.CreateText(_path);
-                using (StreamReader stream = File.OpenText(_path))
-                {
-                    Newtonsoft.Json.JsonSerializer serializer = new();
-                    return serializer.Deserialize(stream, typeof(SettingsEntity)) as SettingsEntity;
-
-                }
+                using StreamReader stream = File.OpenText(_path);
+                Newtonsoft.Json.JsonSerializer serializer = new();
+                return serializer.Deserialize(stream, typeof(SettingsEntity)) as SettingsEntity;
             }
             catch (Exception ex)
             {
