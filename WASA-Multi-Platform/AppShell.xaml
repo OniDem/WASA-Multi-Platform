@@ -16,7 +16,7 @@
         <ShellContent Title="Товар" ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
         <ShellContent Title="Узнать о товаре" ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>
         <ShellContent Title="Настройки" ContentTemplate="{DataTemplate pages:SettingsPage}"/>
-        <ShellContent Title="Обо мне" ContentTemplate="{DataTemplate pages:AboutPage}"/>
+        <ShellContent Title="О приложении" ContentTemplate="{DataTemplate pages:AboutPage}"/>
     </FlyoutItem>
     <MenuItem Text="Выйти из учётной записи" x:Name="SessionExit" Clicked="SessionExit_Clicked"/>
 </Shell>

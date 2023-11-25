@@ -5,5 +5,7 @@ public partial class AboutPage : ContentPage
 	public AboutPage()
 	{
 		InitializeComponent();
-	}
+		AppVersion.Text = "Текущая версия: " + AppInfo.Current.Version;
+
+    }
 }

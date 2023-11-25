@@ -2,12 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WASA_Multi_Platform.Pages.AboutPage"
-             Title="AboutPage">
-    <VerticalStackLayout>
-        <Label 
-        Text="Page in Dev(in prod delete this label)"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center"
-        TextColor="Red"/>
+             Title="О приложении">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Margin="50, 50, 50, 10" FontSize="18" HorizontalTextAlignment="Center" Text="Приложение WASA предназначено для ведения учёта товаров на складе, продаж, доходов, расходов"/>
+        <Label Margin="50, 10, 50, 10" FontSize="18" HorizontalTextAlignment="Center" Text="На данный момент приложение может хранить базу данных с товарами на складе, а так же находить определённые твоары по штрихкоду или артикулу" />
+        <Label HorizontalOptions="Center" VerticalOptions="End" FontAttributes="Bold" FontSize="20" x:Name="AppVersion" />
     </VerticalStackLayout>
 </ContentPage>
