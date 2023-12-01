@@ -12,6 +12,8 @@ namespace WASA_Multi_Platform
             {
                 Navigation.PushAsync(new AuthPage());
             }
+            else
+                Navigation.PushAsync(new AuthCodePage());
         }
 
         private void SessionExit_Clicked(object sender, EventArgs e)

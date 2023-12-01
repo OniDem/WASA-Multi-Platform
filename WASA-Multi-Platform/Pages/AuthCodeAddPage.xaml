@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WASA_Multi_Platform.Pages.AuthCodeAddPage"
+             Title="Придумайте код"
+             BackgroundColor="#C0C0C0">
+    <VerticalStackLayout >
+        <Label Text="Придумайте код для входа в приложение" FontSize="22" VerticalOptions="Start" HorizontalOptions="Center" Margin="10, 100, 10, 10"/>
+        <Entry x:Name="CodeAddEntry" TextChanged="CodeAddEntry_TextChanged" MaxLength="4" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" HorizontalTextAlignment="Center" FontSize="30" Keyboard="Numeric"/>
+        <Entry x:Name="ConfirmCodeAddEntry" TextChanged="ConfirmCodeAddEntry_TextChanged" MaxLength="4" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" HorizontalTextAlignment="Center" FontSize="30" Keyboard="Numeric" IsVisible="false"/>
+        <Label x:Name="BiometricInfoLabel" Text="Использовать биометрию?" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center" Margin="10, 5, 10, 0" IsVisible="false"/>
+        <Switch x:Name="BiometricSwitch" VerticalOptions="Center" IsToggled="True" HorizontalOptions="Center" Margin="10, 0, 10, 10" IsVisible="false"/>
+        <Button x:Name="ContinueButton" Clicked="ContinueButton_Clicked" Text="Далее" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" IsVisible="false"/>
+    </VerticalStackLayout>
+</ContentPage>

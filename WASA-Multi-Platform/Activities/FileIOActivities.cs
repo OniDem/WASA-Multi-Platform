@@ -22,8 +22,6 @@ namespace WASA_Multi_Platform.Activities
                 {
                     Newtonsoft.Json.JsonSerializer serializer = new();
                     serializer.Serialize(file, entity);
-                    var toast = Toast.Make("Данные сохранены!");
-                    toast.Show();
                 }
             }
             catch (Exception ex)
@@ -78,8 +76,6 @@ namespace WASA_Multi_Platform.Activities
                 {
                     Newtonsoft.Json.JsonSerializer serializer = new();
                     serializer.Serialize(file, entity);
-                    var toast = Toast.Make("Данные сохранены!");
-                    toast.Show();
                 }
             }
             catch (Exception ex)
@@ -89,7 +85,7 @@ namespace WASA_Multi_Platform.Activities
             }
         }
 
-        private static SessionEntity GetSessionsData()
+        public static SessionEntity GetSessionsData()
         {
             try
             {
