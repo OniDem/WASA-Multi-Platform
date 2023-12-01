@@ -9,17 +9,9 @@ namespace WASA_Multi_Platform
     static class Validations
     {
 
-        public static bool LoginValid(string login)
+        public static bool EntryValid(string entry)
         {
-            if (string.IsNullOrEmpty(login))
-                return false;
-            else
-                return true;
-        }
-
-        public static bool PasswordValid(string password)
-        {
-            if (!string.IsNullOrEmpty(password) && password.Length > 4)
+            if (string.IsNullOrEmpty(entry))
                 return false;
             else
                 return true;
