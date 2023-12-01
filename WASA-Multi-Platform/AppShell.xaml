@@ -11,7 +11,7 @@
     Shell.FlyoutBackdrop="#a3a3a3"
     FlyoutBackgroundColor="#C0C0C0">
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemMenu">
         <ShellContent Title="Главная" ContentTemplate="{DataTemplate pages:MainPage}"/>
         <ShellContent Title="Товар" ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
         <ShellContent Title="Узнать о товаре" ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>

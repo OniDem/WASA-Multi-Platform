@@ -5,8 +5,7 @@
              Title="Товары"
              IsBusy="false"
              BackgroundColor="#C0C0C0"
-             NavigatedTo="ContentPage_NavigatedTo"
-             NavigatedFrom="ContentPage_NavigatedFrom">
+             NavigatedTo="ContentPage_NavigatedTo">
 
     <StackLayout>
         <Label Text="ProductShowPage in Dev(in prod delete this label)" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"/>

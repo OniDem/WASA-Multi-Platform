@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WASA_Multi_Platform.Pages.MainPage"
              Title="Главная"
-             BackgroundColor="#C0C0C0"
-             NavigatedFrom="ContentPage_NavigatedFrom">
+             BackgroundColor="#C0C0C0">
 
     <ScrollView>
 

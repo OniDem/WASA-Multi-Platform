@@ -3,6 +3,7 @@ using Npgsql;
 using WASA_Multi_Platform.Const;
 using System.Diagnostics;
 using CommunityToolkit.Maui.Alerts;
+using WASA_Multi_Platform.Activities;
 
 namespace WASA_Multi_Platform.Pages;
 
@@ -10,13 +11,18 @@ public partial class ProductShowPage : ContentPage
 {
     bool seller_type = true;
 
-    List<ProductShowEntity> products = new();
-
     public ProductShowPage()
     {
         InitializeComponent();
-        if (UserEntity.ID == null)
-            Navigation.PushAsync(new AuthPage());
+        if (!FileIOActivities.HaveSettingsApplied())
+            Navigation.PushAsync(new SettingsPage());
+        else
+        {
+            if (!FileIOActivities.UserAuthorized())
+            {
+                Navigation.PushAsync(new AuthPage());
+            }
+        }
 
         var timer = new Stopwatch();
         timer.Start();
@@ -88,11 +94,5 @@ public partial class ProductShowPage : ContentPage
     private void tonextpage_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MainPage());
-    }
-
-    private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
-    {
-        if (UserEntity.ID == null)
-            Navigation.PushAsync(new AuthPage());
     }
 }

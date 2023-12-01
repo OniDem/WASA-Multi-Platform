@@ -8,12 +8,21 @@ namespace WASA_Multi_Platform.Pages;
 
 public partial class AuthPage : ContentPage
 {
-	public AuthPage()
-	{
-		InitializeComponent();
+    public AuthPage()
+    {
+        InitializeComponent();
         if (!FileIOActivities.HaveSettingsApplied())
             Navigation.PushAsync(new SettingsPage());
+        else
+        {
+            if (FileIOActivities.UserAuthorized())
+            {
+                Navigation.PopAsync();
+            }
+        }
     }
+
+
 
     private void AuthButton_Clicked(object sender, EventArgs e)
     {
@@ -23,14 +32,20 @@ public partial class AuthPage : ContentPage
             if (Validations.PasswordValid(Password.Text))
             {
                 NpgsqlConnection con = new(DBConnection.ConnectionString);
-
+                 
                 con.Open();
                 NpgsqlCommand command = new($"SELECT user_password FROM users WHERE user_name = '{Login.Text}'", con);
                 if (Convert.ToString(command.ExecuteScalar()) == Password.Text)
                 {
 
                     command = new($"SELECT user_id FROM users WHERE user_name = '{Login.Text}'", con);
-                    UserEntity.ID = Convert.ToInt32(command.ExecuteScalar());
+
+                    FileIOActivities.SetSessionData(new SessionEntity
+                    {
+                        ID = Convert.ToInt32(command.ExecuteScalar()),
+                        UserName = Login.Text
+                    });
+                    
                     Navigation.RemovePage(this);
 
                     //При потребности в проверке верификации аккаунта администратором - раскоментировать

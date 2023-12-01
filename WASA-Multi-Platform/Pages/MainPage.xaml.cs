@@ -1,4 +1,5 @@
-﻿using WASA_Multi_Platform.Entity;
+﻿using WASA_Multi_Platform.Activities;
+using WASA_Multi_Platform.Entity;
 
 namespace WASA_Multi_Platform.Pages
 {
@@ -8,14 +9,14 @@ namespace WASA_Multi_Platform.Pages
         public MainPage()
         {
             InitializeComponent();
-            if (UserEntity.ID == null)
-                Navigation.PushAsync(new AuthPage());
-        }
 
-        private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
-        {
-            if (UserEntity.ID == null)
-                Navigation.PushAsync(new AuthPage());
+            if (!FileIOActivities.HaveSettingsApplied())
+                Navigation.PushAsync(new SettingsPage());
+            else
+            {
+                if (!FileIOActivities.UserAuthorized())
+                    Navigation.PushAsync(new AuthPage());
+            }
         }
     }
 }
