@@ -13,6 +13,7 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemMenu">
         <ShellContent Title="Главная" ContentTemplate="{DataTemplate pages:MainPage}"/>
+        <ShellContent Title="Добавить новый товар" ContentTemplate="{DataTemplate pages:ProductAddPage}"/>
         <ShellContent Title="Товар" ContentTemplate="{DataTemplate pages:ProductShowPage}"/>
         <ShellContent Title="Узнать о товаре" ContentTemplate="{DataTemplate pages:BarcodeReaderPage}"/>
         <ShellContent Title="Настройки" ContentTemplate="{DataTemplate pages:SettingsPage}"/>
