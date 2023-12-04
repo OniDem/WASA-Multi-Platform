@@ -17,18 +17,6 @@ public partial class AuthPage : ContentPage
                 Navigation.PopAsync();
             }
         }
-        //Метод для авторизации по биометрии
-        //Dispatcher.Dispatch(async () => {
-        //    var result = await AuthActivities.IsBiometricAuthorized();
-        //    if (result)
-        //    {
-        //        await DisplayAlert("Ok", "Ok", "Ok");
-        //    }
-        //    else
-        //    {
-        //        await DisplayAlert("Bad", "Bad", "Bad");
-        //    }
-        //});
     }
 
 
@@ -43,6 +31,7 @@ public partial class AuthPage : ContentPage
                     var result = await AuthActivities.IsAuthorized(Login, Password);
                     if (result)
                     {
+                        await Navigation.PushModalAsync(new AuthCodeAddPage());
                         Navigation.RemovePage(this);
                     }
                     else
