@@ -10,7 +10,7 @@ namespace WASA_Multi_Platform
         private static NpgsqlConnection con = new(DBConnection.ConnectionString);
         private static NpgsqlCommand command;
 
-        public static List<ProductShowEntity> ProductsLoad()
+        public static List<ProductShowEntity> ProductListLoad()
         {
             List<ProductShowEntity> products = new();
             try
@@ -42,7 +42,7 @@ namespace WASA_Multi_Platform
 
         }
 
-        public static List<ProductShowEntity> GetProductByCode(int lenght, string code)
+        public static List<ProductShowEntity> GetProductListByCode(int lenght, string code)
         {
             List<ProductShowEntity> products = new();
             try
@@ -71,7 +71,6 @@ namespace WASA_Multi_Platform
                         break;
                 }
                 con.Close();
-                if (products.Count > 0)
                 products.Add(product);
                 return products;
             }
@@ -80,6 +79,30 @@ namespace WASA_Multi_Platform
                 var toast = Toast.Make(ex.Message);
                 toast.Show();
                 return products;
+            }
+        }
+
+        public static ProductShowEntity GetProductByCode(string barcode)
+        {
+            try
+            {
+                ProductShowEntity product = new();
+                con.Open();
+                product.Barcode = barcode;
+                command = new($"SELECT product_name FROM products WHERE barcode = '{barcode}'", con);
+                product.Name = Convert.ToString(command.ExecuteScalar());
+                command = new($"SELECT product_price FROM products WHERE barcode = '{barcode}'", con);
+                product.Price = Convert.ToInt32(command.ExecuteScalar());
+                command = new($"SELECT product_count FROM products WHERE barcode = '{barcode}'", con);
+                product.Count = Convert.ToInt32(command.ExecuteScalar());
+                con.Close();
+                return product;
+            }
+            catch (Exception ex)
+            {
+                var toast = Toast.Make(ex.Message);
+                toast.Show();
+                return null;
             }
         }
     }

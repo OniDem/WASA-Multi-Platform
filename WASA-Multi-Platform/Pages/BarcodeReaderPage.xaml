@@ -10,5 +10,9 @@
             <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="BarcodesDetected" Margin="10, 10, 10, 10"/>
         </StackLayout>
         <Button x:Name="SwitchCameraButton" Text="Сменить камеру" Clicked="SwitchCameraButton_Clicked" Margin="10, 10, 10, 10"/>
+        <Label x:Name="BarcodeLabel" Margin="10"/>
+        <Label x:Name="NameLabel" Margin="10"/>
+        <Label x:Name="PriceLabel" Margin="10"/>
+        <Label x:Name="CountLabel" Margin="10"/>
     </StackLayout>
 </ContentPage>

@@ -28,7 +28,7 @@ public partial class ProductShowPage : ContentPage
         timer.Start();
         if (!BarcodeInfo.BarcodeSended)
         {
-            ProductShowListView.ItemsSource = ProductActivities.ProductsLoad();
+            ProductShowListView.ItemsSource = ProductActivities.ProductListLoad();
         }
         timer.Stop();
 
@@ -54,7 +54,7 @@ public partial class ProductShowPage : ContentPage
         if (articleEntry.Text.Length == 6)
         {
             articleEntry.TextColor = Color.FromArgb("#000000");
-            ProductShowListView.ItemsSource = ProductActivities.GetProductByCode(6, articleEntry.Text);
+            ProductShowListView.ItemsSource = ProductActivities.GetProductListByCode(6, articleEntry.Text);
         }
             
         else
@@ -65,17 +65,12 @@ public partial class ProductShowPage : ContentPage
     {
 
         if (barcodeEntry.Text.Length == 13)
-        {
-            barcodeEntry.TextColor = Color.FromArgb("#000000");
-            ProductShowListView.ItemsSource = ProductActivities.GetProductByCode(13, barcodeEntry.Text);
-        }
-        else
-            barcodeEntry.TextColor = Color.FromArgb("#F08080");
+            ProductShowListView.ItemsSource = ProductActivities.GetProductListByCode(13, barcodeEntry.Text);
     }
 
     private void ReadBarcodeButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new BarcodeReaderPage());
+        Navigation.PushAsync(new BarcodeReaderPage(true));
     }
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
