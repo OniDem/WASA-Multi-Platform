@@ -5,27 +5,29 @@
              BackgroundColor="#C0C0C0"
              Title="Добавление нового товара">
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="Штрихкод" FontSize="14" HorizontalOptions="Center"/>
-        <Entry x:Name="BarcodeEntry" FontSize="14" Margin="15, 0, 15, 0" WidthRequest="200" Keyboard="Numeric"/>
-
-        <Label Text="Артикул(если есть)" FontSize="14" HorizontalOptions="Center"/>
-        <Entry x:Name="ArticleEntry" FontSize="14" Margin="15, 0, 15, 0" WidthRequest="200" Keyboard="Numeric"/>
-
-        <Label Text="Тип" FontSize="14" HorizontalOptions="Center"/>
-        <Picker x:Name="TypePicker" FontSize="14" Margin="15, 0, 15, 0"  WidthRequest="200" SelectedIndexChanged="TypePicker_SelectedIndexChanged"/>
-
-        <Label Text="Наименование" FontSize="14" HorizontalOptions="Center"/>
-        <Entry x:Name="NameEntry" FontSize="14" Margin="15, 0, 15, 0"  WidthRequest="200"/>
+        <Label x:Name="TryLaterEntry" Text="Ошибка добавления товара попробуйте позже" Margin="10, 10, 10, 50" TextColor="Red" IsVisible="false" FontSize="20"  HorizontalOptions="Center"/>
         
-        <Label Text="Цена" FontSize="14" HorizontalOptions="Center"/>
-        <Entry x:Name="PriceEntry" FontSize="14" Margin="15, 0, 15, 0" WidthRequest="200" Keyboard="Numeric"/>
+        <Label Text="Штрихкод" FontSize="20" HorizontalOptions="Center"/>
+        <Entry x:Name="BarcodeEntry" FontSize="20" Margin="15, 0, 15, 0" MaxLength="13" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
 
-        <Label Text="Количество" FontSize="14" HorizontalOptions="Center"/>
-        <Entry x:Name="CountEntry" FontSize="14" Margin="15, 0, 15, 0" WidthRequest="200" Keyboard="Numeric"/>
+        <Label Text="Артикул(если есть)" FontSize="20" HorizontalOptions="Center"/>
+        <Entry x:Name="ArticleEntry" FontSize="20" Margin="15, 0, 15, 0"  MaxLength="6" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+
+        <Label Text="Тип" FontSize="20" HorizontalOptions="Center"/>
+        <Picker x:Name="TypePicker" FontSize="20" Margin="15, 0, 15, 0" HorizontalTextAlignment="Center"/>
+
+        <Label Text="Наименование" FontSize="20" HorizontalOptions="Center"/>
+        <Entry x:Name="NameEntry" FontSize="20" Margin="15, 0, 15, 0" HorizontalTextAlignment="Center"/>
+
+        <Label Text="Цена" FontSize="20" HorizontalOptions="Center"/>
+        <Entry x:Name="PriceEntry" FontSize="20" Margin="15, 0, 15, 0" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+
+        <Label Text="Количество" FontSize="20" HorizontalOptions="Center"/>
+        <Entry x:Name="CountEntry" FontSize="20" Margin="15, 0, 15, 0" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
 
         
 
 
-        <Button Text="Добавить" x:Name="AddButton" Clicked="AddButton_Clicked" Margin="15"/>
+        <Button Text="Добавить" x:Name="AddButton" FontSize="24" Clicked="AddButton_Clicked" Margin="15"/>
     </VerticalStackLayout>
 </ContentPage>
